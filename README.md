@@ -22,7 +22,7 @@ Install the package with Composer:
 
 ```sh
 
-$ composer require mtvs/eloquent-sqids
+$ composer require erisulymosi/eloquent-sqids
 
 ```
 
