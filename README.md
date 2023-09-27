@@ -1,7 +1,9 @@
 > Using sqids instead of integer ids in urls and list items can be more
 appealing and clever. For more information visit [sqids.org](https://sqids.org/).
 
-# Eloquent-Sqids ![Build Status](https://github.com/mtvs/eloquent-sqids/actions/workflows/build.yml/badge.svg)
+> This package is based on mtvs's ![eloquent-hashids](https://github.com/mtvs/eloquent-hashids) package.
+
+# Eloquent-Sqids ![Build Status](https://github.com/eriksulymosi/eloquent-sqids/actions/workflows/build.yml/badge.svg)
 
 This adds sqids to Laravel Eloquent models by encoding/decoding them on the fly
 rather than persisting them in the database. So no need for another database column
