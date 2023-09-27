@@ -1,7 +1,7 @@
 > Using sqids instead of integer ids in urls and list items can be more
 appealing and clever. For more information visit [sqids.org](https://sqids.org/).
 
-> This package is based on mtvs's ![eloquent-hashids](https://github.com/mtvs/eloquent-hashids) package.
+> This package is based on mtvs's [eloquent-hashids](https://github.com/mtvs/eloquent-hashids) package.
 
 # Eloquent-Sqids ![Build Status](https://github.com/eriksulymosi/eloquent-sqids/actions/workflows/build.yml/badge.svg)
 
