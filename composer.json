@@ -5,13 +5,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Mohammad Ali Tavassoli",
-            "email": "mtvs.dev@gmail.com"
-        },
-        {
             "name": "Erik Sulymosi",
             "email": "erik.sulymosi@gmail.com"
-        },
+        }
     ],
     "require": {
         "illuminate/database": "^10.0",
