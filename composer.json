@@ -1,6 +1,6 @@
 {
-    "name": "mtvs/eloquent-hashids",
-    "description": "On-the-fly hashids for Laravel Eloquent models.",
+    "name": "eriksulymosi/eloquent-sqids",
+    "description": "On-the-fly sqids for Laravel Eloquent models.",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -10,25 +10,29 @@
         }
     ],
     "require": {
-        "illuminate/database": "^8.0|^9.0|^10.0",
-        "vinkla/hashids": "^9.0|^10.0|^11.0"
+        "illuminate/database": "^10.0",
+        "vinkla/sqids": "^0.1"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.0|^7.0|^8.0",
-        "phpunit/phpunit": "^8.4|^9.0|^10.0",
-        "laravel/legacy-factories": "^1.0"
+        "orchestra/testbench": "^8.11",
+        "pestphp/pest": "^2.19"
     },
     "autoload": {
         "psr-4": {
-            "Mtvs\\EloquentHashids\\": "src/"
+            "ErikSulymosi\\EloquentSqids\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mtvs\\EloquentHashids\\Tests\\": "tests/"
+            "ErikSulymosi\\EloquentSqids\\Tests\\": "tests/"
         }
     },
     "scripts": {
-        "test": "phpunit"
+        "test": "pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }

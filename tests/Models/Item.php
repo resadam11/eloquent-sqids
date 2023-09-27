@@ -1,16 +1,21 @@
 <?php
 
-namespace Mtvs\EloquentHashids\Tests\Models;
+namespace ErikSulymosi\EloquentSqids\Tests\Models;
 
+use ErikSulymosi\EloquentSqids\HasSqid;
+use ErikSulymosi\EloquentSqids\SqidRouting;
+use ErikSulymosi\EloquentSqids\Tests\Factories\ItemFactory;
+use ErikSulymosi\EloquentSqids\Tests\Models\Comment;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Mtvs\EloquentHashids\HasHashid;
-use Mtvs\EloquentHashids\HashidRouting;
-use Mtvs\EloquentHashids\Tests\Models\Comment;
 
 class Item extends Model
 {
-	use HasHashid, HashidRouting, SoftDeletes;
+	use HasSqid;
+	use SqidRouting;
+	use SoftDeletes;
+	use HasFactory;
 
 	protected $guarded = [];
 
@@ -18,4 +23,14 @@ class Item extends Model
 	{
 		return $this->hasMany(Comment::class);
 	}
+
+	/**
+     * Create a new factory instance for the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory<static>
+     */
+    protected static function newFactory()
+    {
+        return new ItemFactory();
+    }
 }

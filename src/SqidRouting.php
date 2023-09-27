@@ -1,10 +1,10 @@
 <?php
 
-namespace Mtvs\EloquentHashids;
+namespace ErikSulymosi\EloquentSqids;
 
 use Illuminate\Support\Str;
 
-trait HashidRouting
+trait SqidRouting
 {
 	/**
 	 * @see parent
@@ -14,17 +14,17 @@ trait HashidRouting
 		$field = $field ?? $this->getRouteKeyName();
 
 		if (
-			$field && $field !== 'hashid' &&
+			$field && $field !== 'sqid' &&
 			// Check for qualified columns
-			Str::afterLast($field, '.') !== 'hashid' && 
+			Str::afterLast($field, '.') !== 'sqid' && 
 			// Avoid risking breaking backward compatibility by modifying 
-			// the getRouteKeyName() to return 'hashid' instead of null
+			// the getRouteKeyName() to return 'sqid' instead of null
 			Str::afterLast($field, '.') !== ''
 		) {
 			return parent::resolveRouteBindingQuery($query, $value, $field);
 		}
 
-		return $query->byHashid($value);
+		return $query->bySqid($value);
 	}
 
 	/**
@@ -32,7 +32,7 @@ trait HashidRouting
 	 */
 	public function getRouteKey()
 	{
-		return $this->hashid();
+		return $this->sqid();
 	}
 
 	/**

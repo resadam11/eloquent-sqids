@@ -1,14 +1,15 @@
 <?php
 
-namespace Mtvs\EloquentHashids\Tests\Models;
+namespace ErikSulymosi\EloquentSqids\Tests\Models;
 
+use ErikSulymosi\EloquentSqids\HasSqid;
+use ErikSulymosi\EloquentSqids\SqidRouting;
 use Illuminate\Database\Eloquent\Model;
-use Mtvs\EloquentHashids\HasHashid;
-use Mtvs\EloquentHashids\HashidRouting;
 
 class ItemWithCustomRouteKeyName extends Model
 {
-	use HasHashid, HashidRouting;
+	use HasSqid;
+	use SqidRouting;
 
 	protected $guarded = [];
 

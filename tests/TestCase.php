@@ -1,9 +1,9 @@
 <?php
 
-namespace Mtvs\EloquentHashids\Tests;
+namespace ErikSulymosi\EloquentSqids\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Vinkla\Hashids\HashidsServiceProvider;
+use Sqids\Laravel\SqidsServiceProvider;
 
 class TestCase extends Orchestra 
 {
@@ -15,15 +15,13 @@ class TestCase extends Orchestra
 
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
-        $this->withFactories(__DIR__.'/database/factories');
-
-        $this->app['config']->set('hashids', require 'config/hashids.php');
+        $this->app['config']->set('sqids', require 'config/sqids.php');
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            HashidsServiceProvider::class,
+            SqidsServiceProvider::class,
         ];
     }
 }

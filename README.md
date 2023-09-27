@@ -1,18 +1,18 @@
-> Using hashids instead of integer ids in urls and list items can be more
-appealing and clever. For more information visit [hashids.org](https://hashids.org/).
+> Using sqids instead of integer ids in urls and list items can be more
+appealing and clever. For more information visit [sqids.org](https://sqids.org/).
 
-# Eloquent-Hashids ![Build Status](https://github.com/mtvs/eloquent-hashids/actions/workflows/build.yml/badge.svg)
+# Eloquent-Sqids ![Build Status](https://github.com/mtvs/eloquent-sqids/actions/workflows/build.yml/badge.svg)
 
-This adds hashids to Laravel Eloquent models by encoding/decoding them on the fly
+This adds sqids to Laravel Eloquent models by encoding/decoding them on the fly
 rather than persisting them in the database. So no need for another database column
 and also higher performance by using primary keys in queries.
 
 Features include:
 
-* Generating hashids for models
-* Resloving hashids to models
-* Ability to customize hashid settings for each model
-* Route binding with hashids (optional)
+* Generating sqids for models
+* Resloving sqids to models
+* Ability to customize sqid settings for each model
+* Route binding with sqids (optional)
 
 ## Installation
 
@@ -20,7 +20,7 @@ Install the package with Composer:
 
 ```sh
 
-$ composer require mtvs/eloquent-hashids
+$ composer require mtvs/eloquent-sqids
 
 ```
 
@@ -32,28 +32,21 @@ $ php artisan vendor:publish
 
 ## Setup
 
-Base features are provided by using `HasHashid` trait then route binding with
-hashids can be added by using `HashidRouting`.
+Base features are provided by using `HasSqid` trait then route binding with
+sqids can be added by using `SqidRouting`.
 
 ```php
 
 use Illuminate\Database\Eloquent\Model;
-use Mtvs\EloquentHashids\HasHashid;
-use Mtvs\EloquentHashids\HashidRouting;
+use ErikSulymosi\EloquentSqids\HasSqid;
+use ErikSulymosi\EloquentSqids\SqidRouting;
 
 Class Item extends Model
 {
-	use HasHashid, HashidRouting;
+	use HasSqid, SqidRouting;
 }
 
 ```
-
-### Custom Hashid Settings
-
-It's possible to customize hashids settings for each model by overwriting
-`getHashidsConnection()`. It must return the name of a connection of 
-[`vinkla/hashids`](https://github.com/vinkla/laravel-hashids) that provides
-the desired settings.
 
 ## Usage
 
@@ -61,78 +54,78 @@ the desired settings.
 
 ```php
 
-// Generating the model hashid based on its key
-$item->hashid();
+// Generating the model sqid based on its key
+$item->sqid();
 
 // Equivalent to the above but with the attribute style
-$item->hashid;
+$item->sqid;
 
-// Finding a model based on the provided hashid or
+// Finding a model based on the provided sqid or
 // returning null on failure
-Item::findByHashid($hashid);
+Item::findBySqid($sqid);
 
-// Finding a model based on the provided hashid or
+// Finding a model based on the provided sqid or
 // throwing a ModelNotFoundException on failure
-Item::findByHashidOrFail($hashid);
+Item::findBySqidOrFail($sqid);
 
-// Decoding a hashid to its equivalent id 
-$item->hashidToId($hashid);
+// Decoding a sqid to its equivalent id 
+$item->sqidToId($sqid);
 
-// Encoding an id to its equivalent hashid
-$item->idToHashid($id);
+// Encoding an id to its equivalent sqid
+$item->idToSqid($id);
 
-// Getting the name of the hashid connection
-$item->getHashidsConnection();
+// Getting the name of the sqid connection
+$item->getSqidsConnection();
 
 ```
 
-### Add the hashid to the serialized model
+### Add the sqid to the serialized model
 
 Set it as default:
 
 ```php
 
 use Illuminate\Database\Eloquent\Model;
-use Mtvs\EloquentHashids\HasHashid;
+use ErikSulymosi\EloquentSqids\HasSqid;
 
 class Item extends Model
 {
-    use HasHashid;
+    use HasSqid;
     
     /**
      * The accessors to append to the model's array form.
      *
      * @var array
      */
-    protected $appends = ['hashid'];
+    protected $appends = ['sqid'];
 }
 
 ```
 
 or specify it specificly:
 
-`return $item->append('hashid')->toJson();`
+`return $item->append('sqid')->toJson();`
 
 
 ### Implicit Route Bindings
 
 If you want to resolve implicit route bindings for the model using its hahsid
-value you can use `HashidRouting` in the model.
+value you can use `SqidRouting` in the model.
 
 ```php
 
 use Illuminate\Database\Eloquent\Model;
-use Mtvs\EloquentHashids\HasHashid;
-use Mtvs\EloquentHashids\HashidRouting;
+use ErikSulymosi\EloquentSqids\HasSqid;
+use ErikSulymosi\EloquentSqids\SqidRouting;
 
 class Item extends Model
 {
-    use HasHashid, HashidRouting;
+    use HasSqid, SqidRouting;
 }
 
 ```
 It overwrites `getRouteKeyName()`, `getRouteKey()` and `resolveRouteBindingQuery()`
-to use the hashids as the route keys.
+to use the sqids as the route keys.
 
 It supports the Laravel's feature for customizing the key for specific routes.
 
@@ -153,12 +146,12 @@ resolving process and `getRouteKey()` to return its value in your links.
 ```php
 
 use Illuminate\Database\Eloquent\Model;
-use Mtvs\EloquentHashids\HasHashid;
-use Mtvs\EloquentHashids\HashidRouting;
+use ErikSulymosi\EloquentSqids\HasSqid;
+use ErikSulymosi\EloquentSqids\SqidRouting;
 
 class Item extends Model
 {
-    use HasHashid, HashidRouting;
+    use HasSqid, SqidRouting;
 
     public function getRouteKeyName()
     {
@@ -173,11 +166,11 @@ class Item extends Model
 
 ```
 
-You'll still be able to specify the hashid for specific routes.
+You'll still be able to specify the sqid for specific routes.
 
 ```php
 
-Route::get('/items/{item:hashid}', function (Item $item) {
+Route::get('/items/{item:sqid}', function (Item $item) {
     return $item;
 });
 
@@ -185,7 +178,7 @@ Route::get('/items/{item:hashid}', function (Item $item) {
 
 #### Supporting The Other Laravel's Implicit Route Binding Features
 
-When using `HashidRouting` you'll still be able to use softdeletable and child
+When using `SqidRouting` you'll still be able to use softdeletable and child
 route bindings.
 
 ```php
