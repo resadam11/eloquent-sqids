@@ -22,7 +22,7 @@ Install the package with Composer:
 
 ```sh
 
-$ composer require erisulymosi/eloquent-sqids
+$ composer require eriksulymosi/eloquent-sqids
 
 ```
 
