@@ -2,8 +2,8 @@
 
 namespace ErikSulymosi\EloquentSqids\Tests\Models;
 
-use ErikSulymosi\EloquentSqids\HasSqid;
-use ErikSulymosi\EloquentSqids\SqidRouting;
+use ErikSulymosi\EloquentSqids\Eloquent\Traits\HasSqid;
+use ErikSulymosi\EloquentSqids\Eloquent\Traits\SqidRouting;
 use Illuminate\Database\Eloquent\Model;
 
 class ItemWithCustomRouteKeyName extends Model

@@ -2,8 +2,8 @@
 
 namespace ErikSulymosi\EloquentSqids\Tests;
 
+use ErikSulymosi\EloquentSqids\SqidsServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Sqids\Laravel\SqidsServiceProvider;
 
 class TestCase extends Orchestra 
 {
@@ -14,8 +14,6 @@ class TestCase extends Orchestra
         $this->withoutExceptionHandling();
 
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-
-        $this->app['config']->set('sqids', require 'config/sqids.php');
     }
 
     protected function getPackageProviders($app)

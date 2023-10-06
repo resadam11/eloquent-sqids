@@ -10,8 +10,9 @@
         }
     ],
     "require": {
+        "php": "^8.2",
         "illuminate/database": "^10.0",
-        "vinkla/sqids": "^0.1"
+        "sqids/sqids": "^0.4.1"
     },
     "require-dev": {
         "orchestra/testbench": "^8.11",
@@ -33,6 +34,16 @@
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ErikSulymosi\\EloquentSqids\\SqidsServiceProvier"
+            ],
+            "aliases": {
+                "Sqids": "ErikSulymosi\\EloquentSqids\\Facades\\Sqids"
+            }
         }
     }
 }

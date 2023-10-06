@@ -2,6 +2,7 @@
 
 namespace ErikSulymosi\EloquentSqids\Tests;
 
+use ErikSulymosi\EloquentSqids\Facades\Sqids;
 use ErikSulymosi\EloquentSqids\Tests\Models\Comment;
 use ErikSulymosi\EloquentSqids\Tests\Models\Item;
 use ErikSulymosi\EloquentSqids\Tests\Models\ItemWithCustomRouteKeyName;
@@ -9,7 +10,6 @@ use ErikSulymosi\EloquentSqids\Tests\Models\Vendor;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Support\Facades\Route;
-use Sqids\Laravel\Facades\Sqids;
 
 it('can resolve a route binding', function () {
 	$given = Item::factory()->create();

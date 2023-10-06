@@ -1,9 +1,10 @@
 <?php
 
-namespace ErikSulymosi\EloquentSqids;
+namespace ErikSulymosi\EloquentSqids\Eloquent\Traits;
 
+use ErikSulymosi\EloquentSqids\Eloquent\Scopes\SqidScope;
+use ErikSulymosi\EloquentSqids\Facades\Sqids;
 use Illuminate\Database\Eloquent\Model;
-use Sqids\Laravel\Facades\Sqids;
 
 /**
  * @method Model|null findBySqid($sqid)

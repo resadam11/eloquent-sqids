@@ -1,6 +1,6 @@
 <?php
 
-namespace ErikSulymosi\EloquentSqids;
+namespace ErikSulymosi\EloquentSqids\Eloquent\Traits;
 
 use Illuminate\Support\Str;
 

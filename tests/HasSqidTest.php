@@ -2,9 +2,9 @@
 
 namespace ErikSulymosi\EloquentSqids\Tests;
 
+use ErikSulymosi\EloquentSqids\Facades\Sqids;
 use ErikSulymosi\EloquentSqids\Tests\Models\Item;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Sqids\Laravel\Facades\Sqids;
 
 it('can encode the model id to its sqid', function ()
 {

@@ -2,8 +2,8 @@
 
 namespace ErikSulymosi\EloquentSqids\Tests\Models;
 
-use ErikSulymosi\EloquentSqids\HasSqid;
-use ErikSulymosi\EloquentSqids\SqidRouting;
+use ErikSulymosi\EloquentSqids\Eloquent\Traits\HasSqid;
+use ErikSulymosi\EloquentSqids\Eloquent\Traits\SqidRouting;
 use ErikSulymosi\EloquentSqids\Tests\Factories\ItemFactory;
 use ErikSulymosi\EloquentSqids\Tests\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

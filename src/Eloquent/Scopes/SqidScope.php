@@ -1,6 +1,6 @@
 <?php
 
-namespace ErikSulymosi\EloquentSqids;
+namespace ErikSulymosi\EloquentSqids\Eloquent\Scopes;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -15,16 +15,16 @@ class SqidScope implements Scope
 
 	public function extend(Builder $builder)
 	{
-		$builder->macro('findBySqid', function (Builder $builder, $sqid) {
+		$builder->macro('findBySqid', function (Builder $builder, string $sqid) {
 			return $builder->bySqid($sqid)->first();
 		});
 
-		$builder->macro('findBySqidOrFail', function (Builder $builder, $sqid)
+		$builder->macro('findBySqidOrFail', function (Builder $builder, string $sqid)
 		{
 			return $builder->bySqid($sqid)->firstOrFail();
 		});
 
-		$builder->macro('bySqid', function (Builder $builder, $sqid) {
+		$builder->macro('bySqid', function (Builder $builder, string $sqid) {
 			$model = $builder->getModel();
 
 			return $builder->where(
