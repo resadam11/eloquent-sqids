@@ -39,7 +39,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ErikSulymosi\\EloquentSqids\\SqidsServiceProvier"
+                "ErikSulymosi\\EloquentSqids\\SqidsServiceProvider"
             ],
             "aliases": {
                 "Sqids": "ErikSulymosi\\EloquentSqids\\Facades\\Sqids"
